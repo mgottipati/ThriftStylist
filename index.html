@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotted — Thrift Your Vision</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- NAV -->
+<nav>
+  <div class="logo">Spot<span>ted</span></div>
+  <ul class="nav-links">
+    <li><a onclick="scrollToSection('how')">How it works</a></li>
+    <li><a onclick="scrollToSection('hunt')" style="opacity:1;font-weight:800;">🔴 Live Hunt</a></li>
+    <li><a onclick="scrollToSection('impact')">Impact</a></li>
+    <li><a onclick="scrollToSection('find')">Stylists</a></li>
+    <li><a onclick="openModal('shopper')">Post Request</a></li>
+  </ul>
+  <button class="nav-cta" onclick="openModal('stylist')">Join as Stylist</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Sustainable Fashion Community</div>
+    <h1 class="hero-title">Your <em>vision,</em> thrifted to life.</h1>
+    <p class="hero-sub">Upload your style inspo photos. Connect with thrift-savvy stylists who hunt second-hand finds that match your aesthetic — for a fraction of the price.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="openModal('shopper')">Post Your Style Goals</button>
+      <button class="btn-ghost" onclick="scrollToSection('find')">Browse Stylists</button>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-collage">
+      <div class="collage-card c1">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,#C8BDB0 0%,#D4C8BC 100%);display:flex;align-items:center;justify-content:center;font-size:3rem;">🧥</div>
+        <div class="card-tag">Matched</div>
+      </div>
+      <div class="collage-card c2">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,#B8BEB8 0%,#C8CEC8 100%);display:flex;align-items:center;justify-content:center;font-size:2.5rem;">👗</div>
+        <div class="card-tag">$12 Found</div>
+      </div>
+      <div class="collage-card c3">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,#C0C8D0 0%,#D0C8BC 100%);display:flex;align-items:center;justify-content:center;font-size:2.8rem;">👜</div>
+        <div class="card-tag">Pending</div>
+      </div>
+      <div class="collage-card c4">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,#D0C0B8 0%,#E0CCC4 100%);display:flex;align-items:center;justify-content:center;font-size:2.2rem;">🥾</div>
+        <div class="card-tag">New</div>
+      </div>
+      <div class="collage-card c5">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,#B8C0B8 0%,#C8CEC8 100%);display:flex;align-items:center;justify-content:center;font-size:2rem;">🎩</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat"><span class="stat-num">12,400+</span><span class="stat-label">Style Requests Posted</span></div>
+  <div class="stat"><span class="stat-num">3,200</span><span class="stat-label">Active Thrift Stylists</span></div>
+  <div class="stat"><span class="stat-num">89%</span><span class="stat-label">Requests Fulfilled</span></div>
+  <div class="stat"><span class="stat-num">$38 avg</span><span class="stat-label">Saved Per Look</span></div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how">
+  <div class="section-label">How It Works</div>
+  <h2 class="section-title">From pin board to wardrobe, sustainably.</h2>
+  <div class="steps-grid">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-icon">📌</div>
+      <h3>Upload Your Inspo</h3>
+      <p>Upload photos from your mood board, saved screenshots, or describe your style vision. Aesthetic references, specific pieces — share it all.</p>
+      <div class="step-arrow">→</div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-icon">🔍</div>
+      <h3>Stylists Go Hunting</h3>
+      <p>Experienced thrift shoppers browse your request and scout vintage stores, consignment shops, and estate sales for pieces that match your vision.</p>
+      <div class="step-arrow">→</div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-icon">✨</div>
+      <h3>Choose Your Look</h3>
+      <p>Review proposals from multiple stylists with photos, prices, and styling notes. Pick the ones you love and arrange purchase or shipping directly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- APP SECTION -->
+<section class="app-section" id="find">
+  <div class="section-label">The Platform</div>
+  <h2 class="section-title">Post a request or browse as a stylist.</h2>
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('shopper-tab', this)">🛍 I Need Styling</button>
+    <button class="tab" onclick="switchTab('stylist-tab', this)">🧵 I'm a Stylist</button>
+    <button class="tab" onclick="switchTab('browse-tab', this)">📋 Browse Requests</button>
+  </div>
+
+  <!-- SHOPPER TAB -->
+  <div class="tab-content active" id="shopper-tab">
+    <div class="upload-panel">
+      <div>
+        <div class="form-group">
+          <label>Upload Inspo Photos / Mood Board Images</label>
+          <div class="upload-zone" id="dropzone">
+            <input type="file" multiple accept="image/*" onchange="handleFiles(event)">
+            <span class="upload-icon">🖼</span>
+            <h3>Drop your inspo here</h3>
+            <p>PNG, JPG, WEBP supported<br>or paste a style board URL below</p>
+          </div>
+          <div class="inspo-row">
+            <input type="text" placeholder="https://example.com/your-mood-board..." id="pinterestUrl">
+            <button onclick="addPinterestUrl()">📌 Add Board</button>
+          </div>
+          <div class="uploaded-preview" id="previewGrid"></div>
+        </div>
+        <div class="form-group">
+          <label>Style Vibes (click to add)</label>
+          <div class="tags-input" id="tagContainer"><div id="tagChips"></div></div>
+          <div style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.5rem;">
+            <button onclick="addTag('90s Minimalist')" style="background:rgba(255,255,255,0.06);color:rgba(249,246,242,0.55);border:1px solid rgba(255,255,255,0.1);padding:0.3rem 0.7rem;font-size:0.75rem;cursor:pointer;border-radius:999px;">90s Minimalist</button>
+            <button onclick="addTag('Cottagecore')" style="background:rgba(255,255,255,0.06);color:rgba(249,246,242,0.55);border:1px solid rgba(255,255,255,0.1);padding:0.3rem 0.7rem;font-size:0.75rem;cursor:pointer;border-radius:999px;">Cottagecore</button>
+            <button onclick="addTag('Y2K')" style="background:rgba(255,255,255,0.06);color:rgba(249,246,242,0.55);border:1px solid rgba(255,255,255,0.1);padding:0.3rem 0.7rem;font-size:0.75rem;cursor:pointer;border-radius:999px;">Y2K</button>
+            <button onclick="addTag('Dark Academia')" style="background:rgba(255,255,255,0.06);color:rgba(249,246,242,0.55);border:1px solid rgba(255,255,255,0.1);padding:0.3rem 0.7rem;font-size:0.75rem;cursor:pointer;border-radius:999px;">Dark Academia</button>
+            <button onclick="addTag('Vintage Western')" style="background:rgba(255,255,255,0.06);color:rgba(249,246,242,0.55);border:1px solid rgba(255,255,255,0.1);padding:0.3rem 0.7rem;font-size:0.75rem;cursor:pointer;border-radius:999px;">Vintage Western</button>
+            <button onclick="addTag('Avant-garde')" style="background:rgba(255,255,255,0.06);color:rgba(249,246,242,0.55);border:1px solid rgba(255,255,255,0.1);padding:0.3rem 0.7rem;font-size:0.75rem;cursor:pointer;border-radius:999px;">Avant-garde</button>
+          </div>
+        </div>
+        <div class="ai-match-panel" id="aiPanel">
+          <div class="ai-header">
+            <div class="ai-badge">✦ AI</div>
+            <span>Style Match Engine</span>
+          </div>
+          <div class="ai-analyzing" id="aiAnalyzing">
+            <div class="ai-dots"><span></span><span></span><span></span></div>
+            <span style="font-size:0.85rem;color:rgba(249,246,242,0.45);">Analyzing your aesthetic…</span>
+          </div>
+          <div class="ai-results" id="aiResults">
+            <div class="ai-tags-row" id="aiTagsRow"></div>
+            <div class="ai-match-label">Best-matched stylists for your vibe</div>
+            <div class="ai-matched-stylists" id="aiStylests"></div>
+          </div>
+          <div id="aiIdle" style="font-size:0.9rem;color:rgba(249,246,242,0.3);line-height:1.8;">
+            Upload inspo photos or describe your style above — our AI will analyze your aesthetic and surface the <em style="color:rgba(249,246,242,0.7)">best-matched</em> stylists for your specific vibe.
+          </div>
+          <button class="ai-prompt-btn" id="aiRunBtn" onclick="runAIMatch()" style="display:none;">✦ Run AI Style Match</button>
+        </div>
+      </div>
+      <div>
+        <div class="form-group"><label>Your Name / Username</label><input type="text" placeholder="e.g. Mara or @vintagemara"></div>
+        <div class="form-group"><label>Describe Your Style Goals</label><textarea placeholder="I'm going for a 70s earth-tone wardrobe. Love wide-leg pants, chunky knits, and anything terracotta…"></textarea></div>
+        <div class="form-group"><label>Budget per Item</label><select><option>Under $10</option><option>$10–$25</option><option selected>$25–$50</option><option>$50–$100</option><option>$100+</option></select></div>
+        <div class="form-group"><label>Sizes</label><input type="text" placeholder="e.g. Top: S, Pants: 27W, Shoes: 8.5"></div>
+        <div class="form-group"><label>Location (for local pickup option)</label><input type="text" placeholder="City, State"></div>
+        <button class="btn-submit" onclick="submitRequest()">✦ Post Style Request</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STYLIST TAB -->
+  <div class="tab-content" id="stylist-tab">
+    <div class="upload-panel">
+      <div>
+        <div class="form-group"><label>Your Stylist Name</label><input type="text" placeholder="e.g. Delilah or @thriftdelilah"></div>
+        <div class="form-group"><label>Cities / Regions You Thrift In</label><input type="text" placeholder="e.g. Chicago, IL + surrounding suburbs"></div>
+        <div class="form-group">
+          <label>Style Specialties</label>
+          <div style="display:flex;flex-wrap:wrap;gap:0.4rem;">
+            <button onclick="this.classList.toggle('active-sp')" style="background:rgba(255,255,255,0.06);color:rgba(249,246,242,0.55);border:1px solid rgba(255,255,255,0.1);padding:0.3rem 0.7rem;font-size:0.75rem;cursor:pointer;transition:all 0.2s;border-radius:999px;">Vintage</button>
+            <button onclick="this.classList.toggle('active-sp')" style="background:rgba(255,255,255,0.06);color:rgba(249,246,242,0.55);border:1px solid rgba(255,255,255,0.1);padding:0.3rem 0.7rem;font-size:0.75rem;cursor:pointer;transition:all 0.2s;border-radius:999px;">Streetwear</button>
+            <button onclick="this.classList.toggle('active-sp')" style="background:rgba(255,255,255,0.06);color:rgba(249,246,242,0.55);border:1px solid rgba(255,255,255,0.1);padding:0.3rem 0.7rem;font-size:0.75rem;cursor:pointer;transition:all 0.2s;border-radius:999px;">Formalwear</button>
+            <button onclick="this.classList.toggle('active-sp')" style="background:rgba(255,255,255,0.06);color:rgba(249,246,242,0.55);border:1px solid rgba(255,255,255,0.1);padding:0.3rem 0.7rem;font-size:0.75rem;cursor:pointer;transition:all 0.2s;border-radius:999px;">Workwear</button>
+            <button onclick="this.classList.toggle('active-sp')" style="background:rgba(255,255,255,0.06);color:rgba(249,246,242,0.55);border:1px solid rgba(255,255,255,0.1);padding:0.3rem 0.7rem;font-size:0.75rem;cursor:pointer;transition:all 0.2s;border-radius:999px;">Designer Finds</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Upload Portfolio</label>
+          <div class="upload-zone"><input type="file" multiple accept="image/*"><span class="upload-icon">📸</span><h3>Show your eye for style</h3><p>Photos of past finds, styled looks, or your thrift hauls</p></div>
+        </div>
+      </div>
+      <div>
+        <div class="form-group"><label>About You</label><textarea placeholder="Tell shoppers what makes you a great thrift stylist!"></textarea></div>
+        <div class="form-group"><label>Commission Model</label><select><option>Free (tips welcome)</option><option>10% of item cost</option><option>Flat $5 finder fee</option><option>$10–$20 styling fee</option></select></div>
+        <div class="form-group"><label>Response Time</label><select><option>Same day</option><option>Within 48 hours</option><option selected>Within a week</option><option>Flexible</option></select></div>
+        <div class="form-group"><label>Contact / Social</label><input type="text" placeholder="Instagram, email, or preferred contact"></div>
+        <button class="btn-submit" onclick="submitStylist()">✦ Create Stylist Profile</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BROWSE TAB -->
+  <div class="tab-content" id="browse-tab">
+    <div class="requests-grid">
+      <div class="request-card">
+        <div class="request-card-images"><div class="img-slot" style="background:linear-gradient(135deg,#4A5C45,#7A8C6E);">🌿</div><div class="img-slot" style="background:linear-gradient(135deg,#8B7355,#D4B896);">🧶</div></div>
+        <div class="request-card-body">
+          <div class="request-user"><div class="avatar">S</div><div class="user-info"><span class="name">Sofia R.</span><span class="time">posted 2 hours ago</span></div></div>
+          <p class="request-desc">Looking for a complete cottagecore wardrobe refresh. Think prairie dresses, linen blouses, anything floral and loose-fitting. Size M, petite frame.</p>
+          <div class="request-tags"><span class="rtag">Cottagecore</span><span class="rtag">Floral</span><span class="rtag">Linen</span></div>
+          <div class="request-footer"><span class="budget-badge">Budget: $15–$40/item</span><span class="eco-score-pill">🌿 A+</span><button class="reply-btn" onclick="showToast('Request opened! Connect with Sofia.')">Reply ↗</button></div>
+        </div>
+      </div>
+      <div class="request-card">
+        <div class="request-card-images"><div class="img-slot" style="background:linear-gradient(135deg,#1A1A18,#3D3D35);">🖤</div><div class="img-slot" style="background:linear-gradient(135deg,#2C2C25,#4A4A40);">📚</div></div>
+        <div class="request-card-body">
+          <div class="request-user"><div class="avatar" style="background:#333;">M</div><div class="user-info"><span class="name">Marcus T.</span><span class="time">posted 5 hours ago</span></div></div>
+          <p class="request-desc">Dark academia aesthetic for fall semester. Need blazers, trousers, Oxford shirts, vests. Prefer earthy/dark palette. Men's L, 32" inseam.</p>
+          <div class="request-tags"><span class="rtag">Dark Academia</span><span class="rtag">Menswear</span><span class="rtag">Fall</span></div>
+          <div class="request-footer"><span class="budget-badge">Budget: $20–$60/item</span><button class="reply-btn" onclick="showToast('Request opened!')">Reply ↗</button></div>
+        </div>
+      </div>
+      <div class="request-card">
+        <div class="request-card-images"><div class="img-slot" style="background:linear-gradient(135deg,#8899AA,#BBCCDD);">✨</div><div class="img-slot" style="background:linear-gradient(135deg,#AA8877,#CCAA99);">💃</div></div>
+        <div class="request-card-body">
+          <div class="request-user"><div class="avatar" style="background:#888;">J</div><div class="user-info"><span class="name">Jasmine K.</span><span class="time">posted 1 day ago</span></div></div>
+          <p class="request-desc">Y2K revival! I want everything low-rise, metallic, baby tees, platform shoes, velour tracksuits. Size XS/S.</p>
+          <div class="request-tags"><span class="rtag">Y2K</span><span class="rtag">2000s Revival</span><span class="rtag">Metallic</span></div>
+          <div class="request-footer"><span class="budget-badge">Budget: $10–$30/item</span><button class="reply-btn" onclick="showToast('Request opened!')">Reply ↗</button></div>
+        </div>
+      </div>
+      <div class="request-card" style="border:1.5px dashed rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;min-height:200px;cursor:pointer;" onclick="openModal('shopper')">
+        <div style="text-align:center;padding:2rem;">
+          <div style="font-size:2.5rem;margin-bottom:1rem;">＋</div>
+          <div style="font-family:'Pacifico',cursive;font-size:1rem;color:rgba(249,246,242,0.5);font-weight:400;">Post your request</div>
+          <div style="font-size:0.8rem;color:rgba(249,246,242,0.25);margin-top:0.4rem;">Join the community</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE HUNT FEED -->
+<section class="hunt-section" id="hunt">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;margin-bottom:2rem;">
+    <div>
+      <div class="live-pill"><div class="live-dot"></div><span>Live Now — 14 stylists streaming</span></div>
+      <div class="section-label" style="color:rgba(249,246,242,0.4);">The Hunt Feed</div>
+      <h2 class="section-title" style="color:var(--cream);margin-bottom:0;">Watch stylists hunt live.</h2>
+    </div>
+    <button class="go-live-btn" onclick="openGoLive()">📹 Go Live Now</button>
+  </div>
+
+  <div class="stream-row" id="streamRow">
+    <div class="stream-thumb active-stream" onclick="tuneIn('Delilah M.','🦋','Goodwill · Wicker Park, Chicago','Cottagecore, 70s, Boho',312,'cottagecore')">
+      <div class="stream-preview" style="background:linear-gradient(160deg,#3A3A35,#5A5A50);">
+        <div class="stream-scene"><div class="rack-anim"><span>👗</span><span>🧥</span><span>👚</span><span>🧣</span></div></div>
+        <div class="stream-live-badge">● LIVE</div>
+        <div class="stream-viewer-count">👁 312</div>
+      </div>
+      <div class="stream-info">
+        <div class="stream-avatar-name"><div class="stream-mini-avatar">🦋</div><div><span class="stream-name">Delilah M.</span><span class="stream-loc">Goodwill · Chicago</span></div></div>
+        <div class="stream-tags-mini"><span>Cottagecore</span><span>70s</span></div>
+      </div>
+    </div>
+    <div class="stream-thumb" onclick="tuneIn('Kai V.','🎸','Salvation Army · Portland SE','Y2K, 90s, Streetwear',189,'y2k')">
+      <div class="stream-preview" style="background:linear-gradient(160deg,#2A2A28,#3A3A35);">
+        <div class="stream-scene"><div class="rack-anim"><span>✨</span><span>👖</span><span>💿</span><span>🦺</span></div></div>
+        <div class="stream-live-badge">● LIVE</div>
+        <div class="stream-viewer-count">👁 189</div>
+      </div>
+      <div class="stream-info">
+        <div class="stream-avatar-name"><div class="stream-mini-avatar" style="background:#555;">🎸</div><div><span class="stream-name">Kai V.</span><span class="stream-loc">Salvation Army · Portland</span></div></div>
+        <div class="stream-tags-mini"><span>Y2K</span><span>90s</span></div>
+      </div>
+    </div>
+    <div class="stream-thumb" onclick="tuneIn('Rosalind T.','🌹','Estate Sale · Upper East Side NYC','Designer, Old Money, 80s',541,'oldmoney')">
+      <div class="stream-preview" style="background:linear-gradient(160deg,#454540,#656560);">
+        <div class="stream-scene"><div class="rack-anim"><span>💼</span><span>🧣</span><span>🧥</span><span>👠</span></div></div>
+        <div class="stream-live-badge">● LIVE</div>
+        <div class="stream-viewer-count">👁 541</div>
+      </div>
+      <div class="stream-info">
+        <div class="stream-avatar-name"><div class="stream-mini-avatar" style="background:#666;">🌹</div><div><span class="stream-name">Rosalind T.</span><span class="stream-loc">Estate Sale · NYC</span></div></div>
+        <div class="stream-tags-mini"><span>Designer</span><span>Old Money</span></div>
+      </div>
+    </div>
+    <div class="stream-thumb stream-yours" onclick="openGoLive()">
+      <div class="stream-preview" style="background:rgba(255,255,255,0.03);border:2px dashed rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.5rem;">
+        <div style="font-size:2rem;">📹</div>
+        <div style="font-size:0.8rem;color:rgba(249,246,242,0.3);text-align:center;">START YOUR<br>STREAM</div>
+      </div>
+      <div class="stream-info">
+        <div class="stream-avatar-name"><div class="stream-mini-avatar" style="background:rgba(255,255,255,0.1);">+</div><div><span class="stream-name" style="color:rgba(249,246,242,0.5);">Go Live</span><span class="stream-loc">Start streaming now</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stream-viewer-layout" id="streamViewerLayout">
+    <div class="stream-main-video" id="streamMainVideo">
+      <div class="video-idle" id="videoIdle">
+        <div style="font-size:4rem;margin-bottom:1rem;">🎥</div>
+        <div style="font-family:'Pacifico',cursive;font-size:1.3rem;color:var(--cream);margin-bottom:0.5rem;">Tune into a stream</div>
+        <div style="font-size:0.9rem;color:rgba(249,246,242,0.3);max-width:28ch;line-height:1.8;">Click any stream above to watch a stylist hunt live.</div>
+      </div>
+      <div class="video-live" id="videoLive" style="display:none;">
+        <div class="live-video-frame" id="liveVideoFrame">
+          <div class="store-sim" id="storeSim"><div class="store-bg"></div><div class="clothing-rack" id="clothingRack"><div class="rack-bar"></div><div class="rack-items" id="rackItems"></div></div><div class="stylist-hand" id="stylistHand">✋</div><div class="find-flash" id="findFlash"></div></div>
+        </div>
+        <div class="video-overlay-top">
+          <div class="video-live-tag"><div class="live-dot"></div><span id="videoLiveLabel">LIVE</span></div>
+          <div class="video-stream-title" id="videoStreamTitle">Delilah M. — Goodwill Chicago</div>
+          <div class="video-viewers" id="videoViewers">👁 312 watching</div>
+        </div>
+        <div class="video-overlay-bottom">
+          <div class="video-stylist-bar">
+            <div class="hunt-big-avatar" id="videoAvatar" style="width:44px;height:44px;font-size:1.2rem;">🦋<div class="online-dot"></div></div>
+            <div>
+              <span style="font-family:'Pacifico',cursive;font-size:1rem;color:var(--cream);display:block;" id="videoStylistName">Delilah M.</span>
+              <span style="font-size:0.8rem;color:rgba(249,246,242,0.45);display:block;" id="videoStylistLoc">📍 Goodwill · Chicago</span>
+            </div>
+          </div>
+          <div style="display:flex;gap:0.5rem;">
+            <button class="vid-action-btn" onclick="sendLiveHeart()">❤️</button>
+            <button class="vid-action-btn" onclick="openDropRequestModal()">📌 Drop Request</button>
+          </div>
+        </div>
+        <div class="hearts-container" id="heartsContainer"></div>
+      </div>
+      <div class="video-golive" id="videoGoLive" style="display:none;">
+        <video id="liveStreamVideo" autoplay muted playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+        <div class="video-overlay-top">
+          <div class="video-live-tag"><div class="live-dot"></div><span>YOU'RE LIVE</span></div>
+          <div class="video-stream-title" id="myStreamTitle">My Hunt Stream</div>
+          <div class="video-viewers" id="myViewerCount">👁 0 watching</div>
+        </div>
+        <div class="video-overlay-bottom">
+          <div style="display:flex;gap:0.5rem;margin-left:auto;"><button class="vid-action-btn" onclick="endStream()">⏹ End Stream</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="stream-chat-sidebar">
+      <div class="stream-chat-header">
+        <span style="font-size:0.85rem;color:rgba(249,246,242,0.4);">Live Chat</span>
+        <span class="live-pill" style="padding:0.15rem 0.5rem;margin:0;"><div class="live-dot" style="width:6px;height:6px;"></div><span style="font-size:0.7rem;">LIVE</span></span>
+      </div>
+      <div class="stream-chat-messages" id="streamChatMessages">
+        <div class="stream-chat-msg"><span class="scm-user" style="color:rgba(249,246,242,0.7);">@thriftlover</span><span class="scm-text">omg that blouse is perfect!!!</span></div>
+        <div class="stream-chat-msg"><span class="scm-user" style="color:rgba(249,246,242,0.6);">@jxnstyle</span><span class="scm-text">do you see any size M dresses?</span></div>
+        <div class="stream-chat-msg"><span class="scm-user" style="color:rgba(249,246,242,0.8);">@Delilah M. 🦋</span><span class="scm-text">just picked up a linen maxi skirt!</span></div>
+        <div class="stream-chat-msg"><span class="scm-user" style="color:rgba(249,246,242,0.55);">@vintagehunter</span><span class="scm-text">what's the price on that jacket?</span></div>
+      </div>
+      <div class="stream-chat-input-row">
+        <input class="stream-chat-input" id="streamChatInput" placeholder="Say something…" onkeydown="if(event.key==='Enter')sendStreamChat()">
+        <button class="stream-chat-send" onclick="sendStreamChat()">↑</button>
+      </div>
+      <button class="drop-request-sidebar-btn" onclick="openDropRequestModal()">📌 Drop a Request to Stylist</button>
+    </div>
+  </div>
+</section>
+
+<!-- GO LIVE MODAL -->
+<div class="modal-overlay" id="goLiveOverlay" onclick="if(event.target===this)closeGoLive()" style="z-index:300;display:none;">
+  <div class="modal" style="max-width:500px;">
+    <button class="modal-close" onclick="closeGoLive()">✕</button>
+    <h2>Go Live 📹</h2>
+    <p class="modal-sub">Stream your thrift hunt live. Shoppers can drop requests in real time as you walk the floor.</p>
+    <div class="form-group"><label>Stream Title</label><input type="text" id="streamTitleInput" placeholder="e.g. Sunday Goodwill Run — Cottagecore Haul"></div>
+    <div class="form-group"><label>Store / Location</label><input type="text" id="streamLocationInput" placeholder="e.g. Goodwill · Wicker Park, Chicago"></div>
+    <div class="form-group"><label>Style Specialties</label><input type="text" id="streamTagsInput" placeholder="e.g. Cottagecore, 70s, Boho"></div>
+    <div class="form-group">
+      <label>Camera Preview</label>
+      <div style="position:relative;background:#000;aspect-ratio:16/9;overflow:hidden;border-radius:1.5rem;" id="camPreviewWrap">
+        <video id="camPreview" autoplay muted playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+        <div id="camOff" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.5rem;background:rgba(0,0,0,0.7);"><div style="font-size:2rem;">📷</div><div style="font-size:0.85rem;color:rgba(255,255,255,0.35);">Camera not started</div></div>
+      </div>
+      <button style="margin-top:0.5rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:rgba(249,246,242,0.55);padding:0.5rem 1rem;font-size:0.8rem;cursor:pointer;width:100%;border-radius:999px;" onclick="startCamPreview()">🎥 Enable Camera Preview</button>
+    </div>
+    <button class="btn-submit" onclick="startLiveStream()">🔴 Start Streaming</button>
+  </div>
+</div>
+
+<!-- DROP REQUEST MODAL -->
+<div class="modal-overlay" id="dropRequestOverlay" onclick="if(event.target===this)closeDropRequest()" style="z-index:301;display:none;">
+  <div class="modal" style="max-width:420px;">
+    <button class="modal-close" onclick="closeDropRequest()">✕</button>
+    <h2>📌 Drop a Request</h2>
+    <p class="modal-sub" id="dropRequestSub">Delilah M. is live right now. Tell her exactly what you're looking for.</p>
+    <div class="form-group"><label>What are you looking for?</label><textarea id="dropRequestText" placeholder="e.g. A flowy linen midi skirt, earthy tones, size M. Budget $20 max."></textarea></div>
+    <div class="form-group"><label>Your Budget</label><input type="text" placeholder="e.g. Under $30"></div>
+    <button class="btn-submit" onclick="submitDropRequest()">📌 Send Request Live</button>
+  </div>
+</div>
+
+<!-- IMPACT -->
+<section class="impact-section" id="impact">
+  <div class="section-label">Planet Impact</div>
+  <h2 class="section-title">Every thrifted look has a sustainability score.</h2>
+  <p style="font-size:0.9rem;color:rgba(17,17,17,0.5);line-height:1.9;max-width:52ch;margin-bottom:0;">After a stylist fulfills your request, we calculate the real environmental impact of choosing second-hand over buying new.</p>
+  <div class="impact-grid">
+    <div class="impact-score-demo">
+      <div class="score-header"><h3>Your Sustainability Score</h3><div class="score-grade" id="scoreGrade">A+</div></div>
+      <div class="impact-metrics">
+        <div class="impact-metric"><div class="metric-label-row"><span class="metric-label">CO₂ Saved</span><span class="metric-value" id="co2Val">4.2 kg</span></div><div class="metric-bar-bg"><div class="metric-bar-fill" style="--target-width:82%" id="co2Bar"></div></div></div>
+        <div class="impact-metric"><div class="metric-label-row"><span class="metric-label">Water Saved</span><span class="metric-value" id="waterVal">2,700 L</span></div><div class="metric-bar-bg"><div class="metric-bar-fill" style="--target-width:91%"></div></div></div>
+        <div class="impact-metric"><div class="metric-label-row"><span class="metric-label">Waste Diverted</span><span class="metric-value">1 item from landfill</span></div><div class="metric-bar-bg"><div class="metric-bar-fill" style="--target-width:100%"></div></div></div>
+        <div class="impact-metric"><div class="metric-label-row"><span class="metric-label">Money Saved vs. Retail</span><span class="metric-value">$62</span></div><div class="metric-bar-bg"><div class="metric-bar-fill" style="--target-width:74%"></div></div></div>
+      </div>
+      <div class="score-badges"><div class="eco-badge">🌿 Carbon Saver</div><div class="eco-badge">💧 Water Guardian</div><div class="eco-badge">♻️ Zero Waste</div><div class="eco-badge">⭐ Thrift Champion</div></div>
+      <button class="impact-cta" onclick="showToast('Impact card copied! Share it 🌿')">Share My Impact Card ↗</button>
+    </div>
+    <div class="impact-stats-panel">
+      <div class="impact-big-stat"><span class="impact-big-num" id="countCO2">0</span><span class="impact-big-label">kg of CO₂ saved by our community</span><p class="impact-big-desc">Every second-hand find avoids the carbon footprint of manufacturing a new garment.</p></div>
+      <div class="impact-big-stat"><span class="impact-big-num" id="countWater">0</span><span class="impact-big-label">liters of water protected</span><p class="impact-big-desc">A single new cotton t-shirt takes ~2,700 liters to produce.</p></div>
+      <div class="impact-big-stat"><span class="impact-big-num" id="countItems">0</span><span class="impact-big-label">items diverted from landfill</span><p class="impact-big-desc">Each find on Spotted is a vote against fashion waste.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- STYLISTS -->
+<section class="community-section" id="find-stylists">
+  <div style="padding: 7rem 5rem;">
+  <div class="section-label">Top Stylists</div>
+  <h2 class="section-title" style="color:var(--charcoal)">Thrift hunters with an eye for your aesthetic.</h2>
+  <div class="profiles-scroll">
+    <div class="stylist-card"><div class="verified-badge">⭐ Top</div><div class="stylist-avatar">🦋</div><div class="stylist-name">Delilah M.</div><div class="stylist-handle">@thriftdelilah</div><div class="stylist-stats"><div class="ss"><span class="ss-num">247</span><span class="ss-lbl">Finds</span></div><div class="ss"><span class="ss-num">4.9</span><span class="ss-lbl">Rating</span></div><div class="ss"><span class="ss-num">$18</span><span class="ss-lbl">Avg Save</span></div></div><div class="specialty-tags"><span class="sp-tag">Vintage</span><span class="sp-tag">Cottagecore</span></div></div>
+    <div class="stylist-card"><div class="stylist-avatar">🎸</div><div class="stylist-name">Kai V.</div><div class="stylist-handle">@kaivintage</div><div class="stylist-stats"><div class="ss"><span class="ss-num">189</span><span class="ss-lbl">Finds</span></div><div class="ss"><span class="ss-num">4.8</span><span class="ss-lbl">Rating</span></div><div class="ss"><span class="ss-num">$42</span><span class="ss-lbl">Avg Save</span></div></div><div class="specialty-tags"><span class="sp-tag">90s</span><span class="sp-tag">Y2K</span></div></div>
+    <div class="stylist-card"><div class="verified-badge">⭐ Top</div><div class="stylist-avatar">🌹</div><div class="stylist-name">Rosalind T.</div><div class="stylist-handle">@rosalindsfinds</div><div class="stylist-stats"><div class="ss"><span class="ss-num">412</span><span class="ss-lbl">Finds</span></div><div class="ss"><span class="ss-num">5.0</span><span class="ss-lbl">Rating</span></div><div class="ss"><span class="ss-num">$65</span><span class="ss-lbl">Avg Save</span></div></div><div class="specialty-tags"><span class="sp-tag">Designer</span><span class="sp-tag">Old Money</span></div></div>
+    <div class="stylist-card"><div class="stylist-avatar">🌵</div><div class="stylist-name">Buck W.</div><div class="stylist-handle">@thriftcowboy</div><div class="stylist-stats"><div class="ss"><span class="ss-num">93</span><span class="ss-lbl">Finds</span></div><div class="ss"><span class="ss-num">4.7</span><span class="ss-lbl">Rating</span></div><div class="ss"><span class="ss-num">$38</span><span class="ss-lbl">Avg Save</span></div></div><div class="specialty-tags"><span class="sp-tag">Western</span><span class="sp-tag">Denim</span></div></div>
+    <div class="stylist-card"><div class="stylist-avatar">📚</div><div class="stylist-name">Imogen C.</div><div class="stylist-handle">@bookboundstyle</div><div class="stylist-stats"><div class="ss"><span class="ss-num">156</span><span class="ss-lbl">Finds</span></div><div class="ss"><span class="ss-num">4.9</span><span class="ss-lbl">Rating</span></div><div class="ss"><span class="ss-num">$31</span><span class="ss-lbl">Avg Save</span></div></div><div class="specialty-tags"><span class="sp-tag">Dark Academia</span></div></div>
+    <div class="stylist-card"><div class="stylist-avatar">✨</div><div class="stylist-name">Nova X.</div><div class="stylist-handle">@novathrifts</div><div class="stylist-stats"><div class="ss"><span class="ss-num">78</span><span class="ss-lbl">Finds</span></div><div class="ss"><span class="ss-num">4.6</span><span class="ss-lbl">Rating</span></div><div class="ss"><span class="ss-num">$22</span><span class="ss-lbl">Avg Save</span></div></div><div class="specialty-tags"><span class="sp-tag">Avant-garde</span></div></div>
+  </div>
+  <button class="btn-ghost" style="margin-top:1rem;" onclick="showToast('Full directory coming soon!')">View All 3,200+ Stylists →</button>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonial-section">
+  <div class="section-label" style="color:rgba(249,246,242,0.4);">Stories</div>
+  <h2 class="section-title" style="color:var(--cream)">Real finds, real savings, real style.</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial"><div class="t-stars">★★★★★</div><p class="t-quote">I pinned a whole board of 70s-inspired looks and Delilah found me six pieces under $80 total. My friends thought I spent $400 at a vintage boutique.</p><div class="t-author"><div class="t-avatar">🌸</div><div><span class="t-name">Priya S.</span><span class="t-role">Shopper · Chicago</span></div></div></div>
+    <div class="testimonial"><div class="t-stars">★★★★★</div><p class="t-quote">As a thrift addict, this gives my Sunday Goodwill runs actual purpose. I help people find their aesthetic and earn a little on the side. Win-win-win.</p><div class="t-author"><div class="t-avatar">🎸</div><div><span class="t-name">Kai V.</span><span class="t-role">Stylist · Portland</span></div></div></div>
+    <div class="testimonial"><div class="t-stars">★★★★☆</div><p class="t-quote">The dark academia request I posted got 4 responses in 24 hours. I ended up with a full look for my gallery opening that felt totally authentic.</p><div class="t-author"><div class="t-avatar">🖤</div><div><span class="t-name">Theo M.</span><span class="t-role">Shopper · Brooklyn</span></div></div></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">Spot<span>ted</span></div>
+      <p class="footer-desc">A community marketplace connecting fashion lovers with thrift-savvy stylists. Sustainable, affordable, authentic.</p>
+      <div style="display:flex;gap:1rem;">
+        <button onclick="showToast('Instagram coming soon!')" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:rgba(249,246,242,0.4);padding:0.5rem 1rem;font-size:0.8rem;cursor:pointer;border-radius:999px;">Instagram</button>
+        <button onclick="showToast('TikTok coming soon!')" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:rgba(249,246,242,0.4);padding:0.5rem 1rem;font-size:0.8rem;cursor:pointer;border-radius:999px;">TikTok</button>
+      </div>
+    </div>
+    <div class="footer-col"><h4>Shoppers</h4><ul><li><a onclick="openModal('shopper')">Post a Request</a></li><li><a>Browse Stylists</a></li><li><a>How It Works</a></li></ul></div>
+    <div class="footer-col"><h4>Stylists</h4><ul><li><a onclick="openModal('stylist')">Create Profile</a></li><li><a>Browse Requests</a></li><li><a>Earning Guide</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a>About</a></li><li><a>Blog</a></li><li><a>Sustainability</a></li><li><a>Contact</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Spotted. All rights reserved.</span>
+    <span>Made with ♻️ for a more sustainable wardrobe.</span>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+  <div class="modal" id="modalBox"><button class="modal-close" onclick="closeModal()">✕</button><div id="modalContent"></div></div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
